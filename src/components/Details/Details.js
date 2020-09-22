@@ -11,6 +11,17 @@ export default function Details() {
   const navigation = useNavigation();
   const route = useRoute();
 
+  useFocusEffect(
+    React.useCallback(() => {
+      fetch("https://restcountries.eu/rest/v2/currency/cop")
+        .then((response) => {
+          response.json().then((data) => console.log(data));
+        })
+        .catch((error) => console.log(error));
+      return () => console.log("LOST FOCUS");
+    })
+  );
+
   return (
     <View style={styles.center}>
       <Text style={styles.title}>{route.params.screenTitle}</Text>
