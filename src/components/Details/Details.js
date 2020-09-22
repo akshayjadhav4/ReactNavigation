@@ -17,6 +17,10 @@ export default function Details({ route, navigation }) {
           }
           title="View Bottom Tabs"
         />
+        <Button
+          onPress={() => navigation.navigate("Feed", { data: "Back to you" })}
+          title="Go Back With Data"
+        />
       </View>
     </View>
   );
