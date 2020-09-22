@@ -9,11 +9,11 @@ export default function Details({ navigation }) {
       <View style={styles.buttonContainer}>
         <Button
           onPress={() => navigation.navigate("Top Tabs")}
-          title="View Botton Tabs"
+          title="View Top Tabs"
         />
         <Button
           onPress={() => navigation.navigate("Bottom Tabs")}
-          title="View Top Tabs"
+          title="View Bottom Tabs"
         />
       </View>
     </View>
