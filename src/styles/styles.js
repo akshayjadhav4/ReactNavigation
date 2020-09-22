@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 36,
     marginBottom: 16,
+    color: "grey",
   },
   buttonContainer: {
     display: "flex",

@@ -8,11 +8,21 @@ import TabOne from "./src/components/Tabs/TabOne";
 import TabTwo from "./src/components/Tabs/TabTwo";
 import TabThree from "./src/components/Tabs/TabThree";
 
-import { NavigationContainer } from "@react-navigation/native";
+import {
+  NavigationContainer,
+  DefaultTheme,
+  DarkTheme,
+} from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+
+import {
+  AppearanceProvider,
+  Appearance,
+  useColorScheme,
+} from "react-native-appearance";
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -20,6 +30,8 @@ const MaterialBottomTabs = createMaterialBottomTabNavigator();
 const MaterialTopTabs = createMaterialTopTabNavigator();
 
 export default function App() {
+  const colorScheme = useColorScheme();
+
   // stack Navigator
   const createHomeStack = () => (
     <Stack.Navigator>
@@ -73,13 +85,17 @@ export default function App() {
   };
 
   return (
-    <NavigationContainer>
-      {/* Drawer navigator */}
-      <Drawer.Navigator>
-        {/* Using stack navigator as children for Home */}
-        <Drawer.Screen name="Home" children={createHomeStack} />
-        <Drawer.Screen name="Drawer Two" component={DrawerOne} />
-      </Drawer.Navigator>
-    </NavigationContainer>
+    <AppearanceProvider>
+      <NavigationContainer
+        theme={colorScheme === "dark" ? DarkTheme : DefaultTheme}
+      >
+        {/* Drawer navigator */}
+        <Drawer.Navigator>
+          {/* Using stack navigator as children for Home */}
+          <Drawer.Screen name="Home" children={createHomeStack} />
+          <Drawer.Screen name="Drawer Two" component={DrawerOne} />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </AppearanceProvider>
   );
 }
