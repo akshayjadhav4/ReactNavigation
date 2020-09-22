@@ -1,8 +1,16 @@
 import React from "react";
 import { View, Text, Button } from "react-native";
 import { styles } from "../../styles/styles";
+import {
+  useNavigation,
+  useRoute,
+  useFocusEffect,
+} from "@react-navigation/native";
 
-export default function Details({ route, navigation }) {
+export default function Details() {
+  const navigation = useNavigation();
+  const route = useRoute();
+
   return (
     <View style={styles.center}>
       <Text style={styles.title}>{route.params.screenTitle}</Text>

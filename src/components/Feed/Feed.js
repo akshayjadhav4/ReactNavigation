@@ -1,8 +1,12 @@
 import React from "react";
 import { View, Text, Button } from "react-native";
 import { styles } from "../../styles/styles";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
-export default function Feed({ route, navigation }) {
+export default function Feed() {
+  const navigation = useNavigation();
+  const route = useRoute();
+
   return (
     <View style={styles.center}>
       <Text style={styles.title}>Navigation</Text>
