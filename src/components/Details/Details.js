@@ -6,8 +6,10 @@ export default function Details() {
   return (
     <View style={styles.center}>
       <Text style={styles.title}>Details Screen</Text>
-      <Button onPress={() => {}} title="View Botton Tabs" />
-      <Button onPress={() => {}} title="View Top Tabs" />
+      <View style={styles.buttonContainer}>
+        <Button onPress={() => {}} title="View Botton Tabs" />
+        <Button onPress={() => {}} title="View Top Tabs" />
+      </View>
     </View>
   );
 }
