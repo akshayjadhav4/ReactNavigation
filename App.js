@@ -39,13 +39,13 @@ export default function App() {
   );
 
   // Top tabs
-  const createTopTabs = () => {
+  const createTopTabs = (props) => {
     return (
       <MaterialTopTabs.Navigator>
         <MaterialTopTabs.Screen
           name="Tab 1"
           component={TabOne}
-          options={{ title: "Tab One" }}
+          options={{ title: props.route.params.text }}
         />
         <MaterialTopTabs.Screen
           name="Tab 2"

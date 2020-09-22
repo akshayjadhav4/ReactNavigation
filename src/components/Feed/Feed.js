@@ -8,7 +8,9 @@ export default function Feed({ navigation }) {
       <Text style={styles.title}>Navigation</Text>
       {/* onPress moving to Details screen  */}
       <Button
-        onPress={() => navigation.navigate("Details")}
+        onPress={() =>
+          navigation.navigate("Details", { screenTitle: "My Details Screen" })
+        }
         title="Go To Feed"
       />
     </View>
