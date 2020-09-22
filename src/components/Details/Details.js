@@ -5,12 +5,14 @@ import {
   useNavigation,
   useRoute,
   useFocusEffect,
+  useNavigationState,
 } from "@react-navigation/native";
 
 export default function Details() {
   const navigation = useNavigation();
   const route = useRoute();
-
+  const navigationState = useNavigationState((state) => state);
+  console.log(navigationState);
   useFocusEffect(
     React.useCallback(() => {
       fetch("https://restcountries.eu/rest/v2/currency/cop")
