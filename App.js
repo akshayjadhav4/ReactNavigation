@@ -5,6 +5,8 @@ import Details from "./src/components/Details/Details";
 import DrawerOne from "./src/components/Drawer/DrawerOne";
 
 import TabOne from "./src/components/Tabs/TabOne";
+import TabTwo from "./src/components/Tabs/TabTwo";
+import TabThree from "./src/components/Tabs/TabThree";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -23,8 +25,32 @@ export default function App() {
     <Stack.Navigator>
       <Stack.Screen name="Feed" component={Feed} />
       <Stack.Screen name="Details" component={Details} />
+      <Stack.Screen name="Top Tabs" children={createTopTabs} />
+      <Stack.Screen name="Bottom Tabs" children={createBottomTabs} />
     </Stack.Navigator>
   );
+
+  // Top tabs
+  const createTopTabs = () => {
+    return (
+      <MaterialTopTabs.Navigator>
+        <MaterialTopTabs.Screen name="Tab 1" component={TabOne} />
+        <MaterialTopTabs.Screen name="Tab 2" component={TabTwo} />
+        <MaterialTopTabs.Screen name="Tab 3" component={TabThree} />
+      </MaterialTopTabs.Navigator>
+    );
+  };
+
+  // Bottom tabs
+  const createBottomTabs = () => {
+    return (
+      <MaterialBottomTabs.Navigator>
+        <MaterialBottomTabs.Screen name="Tab 1" component={TabOne} />
+        <MaterialBottomTabs.Screen name="Tab 2" component={TabTwo} />
+        <MaterialBottomTabs.Screen name="Tab 3" component={TabThree} />
+      </MaterialBottomTabs.Navigator>
+    );
+  };
 
   return (
     <NavigationContainer>
