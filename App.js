@@ -25,8 +25,16 @@ export default function App() {
     <Stack.Navigator>
       <Stack.Screen name="Feed" component={Feed} />
       <Stack.Screen name="Details" component={Details} />
-      <Stack.Screen name="Top Tabs" children={createTopTabs} />
-      <Stack.Screen name="Bottom Tabs" children={createBottomTabs} />
+      <Stack.Screen
+        name="Top Tabs"
+        children={createTopTabs}
+        options={{ title: "Top Tabs" }}
+      />
+      <Stack.Screen
+        name="Bottom Tabs"
+        children={createBottomTabs}
+        options={{ title: "Bottom Tabs" }}
+      />
     </Stack.Navigator>
   );
 
@@ -34,9 +42,21 @@ export default function App() {
   const createTopTabs = () => {
     return (
       <MaterialTopTabs.Navigator>
-        <MaterialTopTabs.Screen name="Tab 1" component={TabOne} />
-        <MaterialTopTabs.Screen name="Tab 2" component={TabTwo} />
-        <MaterialTopTabs.Screen name="Tab 3" component={TabThree} />
+        <MaterialTopTabs.Screen
+          name="Tab 1"
+          component={TabOne}
+          options={{ title: "Tab One" }}
+        />
+        <MaterialTopTabs.Screen
+          name="Tab 2"
+          component={TabTwo}
+          options={{ title: "Tab Two" }}
+        />
+        <MaterialTopTabs.Screen
+          name="Tab 3"
+          component={TabThree}
+          options={{ title: "Tab Three" }}
+        />
       </MaterialTopTabs.Navigator>
     );
   };
