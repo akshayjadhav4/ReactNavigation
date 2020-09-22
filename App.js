@@ -32,6 +32,18 @@ const MaterialTopTabs = createMaterialTopTabNavigator();
 export default function App() {
   const colorScheme = useColorScheme();
 
+  const MyTheme = {
+    dark: false,
+    colors: {
+      primary: "rgb(255, 45, 85)",
+      background: "rgb(242, 242, 242)",
+      card: "rgb(255, 255, 255)",
+      text: "rgb(28, 28, 30)",
+      border: "rgb(199, 199, 204)",
+      notification: "rgb(255, 69, 58)",
+    },
+  };
+
   // stack Navigator
   const createHomeStack = () => (
     <Stack.Navigator>
@@ -86,9 +98,7 @@ export default function App() {
 
   return (
     <AppearanceProvider>
-      <NavigationContainer
-        theme={colorScheme === "dark" ? DarkTheme : DefaultTheme}
-      >
+      <NavigationContainer theme={colorScheme === "dark" ? DarkTheme : MyTheme}>
         {/* Drawer navigator */}
         <Drawer.Navigator>
           {/* Using stack navigator as children for Home */}
